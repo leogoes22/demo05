@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURA GYM Piam — Planos e Matrículas</title>
+<meta name="description" content="Escolha seu plano na Aura Gym da Piam. Estrutura premium, aulas para todos os níveis e acompanhamento dedicado. Condições especiais de inauguração.">
+<meta property="og:title" content="AURA GYM Piam — Planos e Matrículas">
+<meta property="og:description" content="Planos com condições especiais de inauguração em Belford Roxo. Escolha o seu e comece.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#060606;--onyx:#0d0d0d;--graphite:#161514;--line:#262320;
+    --gold:#d4af62;--gold-light:#f4e0a6;--gold-deep:#a87f31;
+    --bone:#ece5d6;--ash:#8f897c;--ash-dim:#63605a;
+    --grad-gold:linear-gradient(135deg,#f4e0a6 0%,#d4af62 42%,#a87f31 100%);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--void);color:var(--bone);font-family:'Inter',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--gold);color:#000}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  .display{font-family:'Sora',sans-serif;font-weight:800;letter-spacing:-.01em;line-height:1.03}
+  .eyebrow{font-family:'Sora',sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold)}
+  .gold-text{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:'Sora',sans-serif;font-weight:600;font-size:.84rem;letter-spacing:.06em;text-transform:uppercase;padding:15px 28px;border-radius:2px;transition:transform .25s,box-shadow .25s,background .25s,color .25s;cursor:pointer;border:none}
+  .btn-gold{background:var(--grad-gold);color:#0a0a0a}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 38px -12px rgba(212,175,98,.6)}
+  .btn-ghost{background:transparent;color:var(--bone);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold-light)}
+  .mark{width:36px;height:36px;flex:none}
+  .logo{display:flex;align-items:center;gap:12px}
+  .logo .word{font-family:'Sora',sans-serif;font-weight:700;font-size:1.15rem;letter-spacing:.3em;padding-left:.3em}
+  .logo .word small{display:block;font-size:.5rem;letter-spacing:.6em;color:var(--gold);font-weight:600;margin-top:2px}
+
+  header{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .4s,border-color .4s;border-bottom:1px solid transparent}
+  header.scrolled{background:rgba(6,6,6,.85);backdrop-filter:blur(14px);border-color:var(--line)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+  nav .btn{padding:12px 22px}
+
+  /* HERO */
+  .hero{position:relative;padding:150px 0 80px;text-align:center;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 60% at 50% 10%,rgba(212,175,98,.16),transparent 70%);pointer-events:none}
+  .hero .inner{position:relative;z-index:2;max-width:760px;margin:0 auto}
+  .badge{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:100px;padding:8px 16px 8px 12px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light);margin-bottom:26px;background:rgba(212,175,98,.05)}
+  .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(212,175,98,.55)}70%{box-shadow:0 0 0 10px rgba(212,175,98,0)}100%{box-shadow:0 0 0 0 rgba(212,175,98,0)}}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.6rem);margin-bottom:22px}
+  .hero p.lead{font-size:1.14rem;color:var(--ash);max-width:560px;margin:0 auto 20px}
+  .hero .anchor{display:inline-flex;align-items:center;gap:8px;color:var(--gold-light);font-size:.86rem;font-family:'Sora',sans-serif;font-weight:600;letter-spacing:.05em;margin-top:14px}
+
+  /* PLANS */
+  .plans{padding:20px 0 90px}
+  .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+  .plan{position:relative;border:1px solid var(--line);border-radius:12px;padding:38px 30px;background:linear-gradient(180deg,rgba(255,255,255,.015),transparent);display:flex;flex-direction:column;transition:transform .3s,border-color .3s}
+  .plan:hover{transform:translateY(-6px);border-color:rgba(212,175,98,.4)}
+  .plan.featured{border-color:var(--gold);background:linear-gradient(180deg,rgba(212,175,98,.08),transparent 60%);box-shadow:0 30px 80px -46px rgba(212,175,98,.5)}
+  .plan .flag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--grad-gold);color:#0a0a0a;font-family:'Sora',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;padding:6px 16px;border-radius:100px;white-space:nowrap}
+  .plan .pname{font-family:'Sora',sans-serif;font-weight:700;font-size:1.02rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+  .plan .psub{color:var(--ash);font-size:.86rem;margin-bottom:26px;min-height:40px}
+  .plan .price{display:flex;align-items:flex-end;gap:6px;margin-bottom:4px}
+  .plan .price .cur{font-family:'Sora',sans-serif;font-weight:600;font-size:1.1rem;color:var(--ash);margin-bottom:5px}
+  .plan .price .val{font-family:'Sora',sans-serif;font-weight:800;font-size:3rem;line-height:1}
+  .plan .price .per{color:var(--ash);font-size:.86rem;margin-bottom:8px}
+  .plan .oldprice{color:var(--ash-dim);text-decoration:line-through;font-size:.86rem;margin-bottom:22px}
+  .plan ul{list-style:none;margin:14px 0 28px;display:flex;flex-direction:column;gap:13px}
+  .plan ul li{display:flex;gap:11px;font-size:.92rem;color:var(--bone)}
+  .plan ul li svg{width:18px;height:18px;color:var(--gold);flex:none;margin-top:2px}
+  .plan ul li.off{color:var(--ash-dim)}
+  .plan ul li.off svg{color:var(--ash-dim)}
+  .plan .btn{width:100%;margin-top:auto}
+  .plan.featured .btn-ghost{border-color:var(--gold);color:var(--gold-light)}
+  .editnote{text-align:center;color:var(--ash-dim);font-size:.78rem;margin-top:26px}
+
+  /* value band */
+  .value{background:var(--onyx);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:80px 0}
+  .value .sec-head{text-align:center;max-width:640px;margin:0 auto 48px}
+  .value .sec-head .eyebrow{display:block;margin-bottom:14px}
+  .value .sec-head h2{font-size:clamp(1.8rem,4vw,2.6rem)}
+  .val-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .val{border:1px solid var(--line);border-radius:8px;padding:28px 24px;transition:border-color .3s}
+  .val:hover{border-color:rgba(212,175,98,.4)}
+  .val .ic{width:42px;height:42px;color:var(--gold);margin-bottom:18px}
+  .val h4{font-family:'Sora',sans-serif;font-weight:700;font-size:.98rem;text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px}
+  .val p{color:var(--ash);font-size:.86rem}
+
+  /* faq */
+  .faq{padding:80px 0}
+  .faq .sec-head{text-align:center;margin-bottom:40px}
+  .faq .sec-head .eyebrow{display:block;margin-bottom:14px}
+  .faq .sec-head h2{font-size:clamp(1.8rem,4vw,2.6rem)}
+  .acc{max-width:760px;margin:0 auto}
+  .acc-item{border:1px solid var(--line);border-radius:8px;margin-bottom:12px;overflow:hidden}
+  .acc-q{width:100%;text-align:left;background:none;border:none;color:var(--bone);font-family:'Sora',sans-serif;font-weight:600;font-size:1rem;padding:22px 24px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .acc-q svg{width:20px;height:20px;color:var(--gold);flex:none;transition:transform .3s}
+  .acc-item.open .acc-q svg{transform:rotate(45deg)}
+  .acc-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+  .acc-a p{padding:0 24px 22px;color:var(--ash);font-size:.94rem}
+
+  /* final */
+  .finalcta{background:linear-gradient(160deg,#100d07,#060606 70%);border-top:1px solid var(--line);padding:84px 0;text-align:center}
+  .finalcta h2{font-size:clamp(2rem,4.6vw,3.1rem);margin-bottom:18px}
+  .finalcta p{color:var(--ash);max-width:500px;margin:0 auto 30px}
+  .finalcta .row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  footer{padding:40px 0;border-top:1px solid var(--line);text-align:center;color:var(--ash-dim);font-size:.82rem}
+  footer a{color:var(--gold-light)}
+
+  .wa-float{position:fixed;bottom:24px;right:24px;z-index:90;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px -8px rgba(37,211,102,.5);transition:transform .25s}
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:30px;height:30px;color:#fff}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:920px){
+    .plan-grid{grid-template-columns:1fr;max-width:460px;margin:0 auto}
+    .plan.featured{order:-1}
+    .val-grid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(max-width:520px){.val-grid{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap">
+    <nav>
+      <a href="#" class="logo">
+        <span class="mark"><svg viewBox="0 0 100 100" fill="none"><path d="M50 14 L82 78 H68 L50 40 L32 78 H18 Z" stroke="#d4af62" stroke-width="4" stroke-linejoin="round"/><path d="M50 38 L66 72 H58 L50 54 L42 72 H34 Z" fill="#d4af62"/></svg></span>
+        <span class="word">AURA<small>GYM · PIAM</small></span>
+      </a>
+      <a href="#planos" class="btn btn-gold">Ver planos</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap inner">
+    <div class="badge"><span class="dot"></span>Condições especiais de inauguração</div>
+    <h1 class="display">Escolha o plano da <span class="gold-text">sua melhor versão.</span></h1>
+    <p class="lead">Estrutura premium, aulas para todos os níveis e acompanhamento dedicado — na academia mais completa da Piam.</p>
+    <a href="#planos" class="anchor">Ver os planos
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- PLANS -->
+<section class="plans" id="planos">
+  <div class="wrap">
+    <div class="plan-grid">
+      <!-- ESSENCIAL -->
+      <div class="plan reveal">
+        <div class="pname">Essencial</div>
+        <div class="psub">Para começar com tudo que importa.</div>
+        <div class="price"><span class="cur">R$</span><span class="val">99</span><span class="per">/mês</span></div>
+        <div class="oldprice">de R$ 129/mês</div>
+        <ul>
+          <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Musculação livre</li>
+          <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Ambiente climatizado</li>
+          <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Ficha de treino inicial</li>
+          <li class="off"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>Aulas coletivas</li>
+          <li class="off"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>Avaliações com a equipe</li>
+        </ul>
+        <a href="#" class="btn btn-ghost plan-cta" data-plan="Essencial" data-price="R$ 99/mês">Quero este plano</a>
+      </div>
+
+      <!-- PREMIUM (featured) -->
+      <div class="plan featured reveal">
+        <span class="flag">Mais escolhido</span>
+        <div class="pname">Premium</div>
+        <div class="psub">O equilíbrio ideal entre treino e acompanhamento.</div>
+        <div class="price"><span class="cur">R$</span><span class="val">149</span><span class="per">/mês</span></div>
+        <div class="oldprice">de R$ 199/mês</div>
+        <ul>
+          <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Tudo do Essencial</li>
+          <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Todas as aulas coletivas</li>
+          <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Kickboxing, Jiu-Jítsu, Funcional e mais</li>
+          <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Avaliação física periódica</li>
+          <li class="off"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>Personal e nutri inclusos</li>
+        </ul>
+        <a href="#" class="btn btn-gold plan-cta" data-plan="Premium" data-price="R$ 149/mês">Quero este plano</a>
+      </div>
+
+      <!-- BLACK -->
+      <div class="plan reveal">
+        <div class="pname">Black</div>
+        <div class="psub">A experiência completa da Aura, sem limites.</div>
+        <div class="price"><span class="cur">R$</span><span class="val">229</span><span class="per">/mês</span></div>
+        <div class="oldprice">de R$ 299/mês</div>
+        <ul>
+          <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Tudo do Premium</li>
+          <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Acompanhamento com personal</li>
+          <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Plano com nutricionista</li>
+          <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Avaliação com fisioterapeuta</li>
+          <li><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Prioridade em horários e aulas</li>
+        </ul>
+        <a href="#" class="btn btn-ghost plan-cta" data-plan="Black" data-price="R$ 229/mês">Quero este plano</a>
+      </div>
+    </div>
+    <p class="editnote">Valores promocionais de inauguração. Consulte condições de plano anual e matrícula no WhatsApp.</p>
+  </div>
+</section>
+
+<!-- VALUE -->
+<section class="value">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Por que a Aura</span>
+      <h2 class="display">Um plano que <span class="gold-text">entrega mais.</span></h2>
+    </div>
+    <div class="val-grid">
+      <div class="val reveal">
+        <div class="ic"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 9v6M6 7v10M18 7v10M21 9v6M6 12h12"/></svg></div>
+        <h4>Equipamentos premium</h4><p>Aparelhos de última geração para cada objetivo.</p>
+      </div>
+      <div class="val reveal">
+        <div class="ic"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3.2"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7"/></svg></div>
+        <h4>Equipe completa</h4><p>Personal, nutricionista e fisioterapeuta.</p>
+      </div>
+      <div class="val reveal">
+        <div class="ic"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.2"/><path d="M12 7v6l4 3M12 13l-4 4"/></svg></div>
+        <h4>Aulas para todos</h4><p>Kickboxing, Jiu-Jítsu, Funcional, Step, Jump e Zumba.</p>
+      </div>
+      <div class="val reveal">
+        <div class="ic"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2v20M4.2 7l15.6 10M4.2 17l15.6-10M2 12h20"/></svg></div>
+        <h4>Conforto total</h4><p>Ambiente climatizado e estrutura pensada nos detalhes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Dúvidas frequentes</span>
+      <h2 class="display">Tudo que você <span class="gold-text">precisa saber.</span></h2>
+    </div>
+    <div class="acc">
+      <div class="acc-item reveal">
+        <button class="acc-q">Preciso pagar matrícula? <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="acc-a"><p>Nas condições de inauguração, a matrícula pode ser isenta ou reduzida. Fale com a equipe no WhatsApp para confirmar a promoção vigente.</p></div>
+      </div>
+      <div class="acc-item reveal">
+        <button class="acc-q">Posso trocar de plano depois? <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="acc-a"><p>Sim. Você pode fazer upgrade ou downgrade do seu plano a qualquer momento, respeitando as condições do contrato.</p></div>
+      </div>
+      <div class="acc-item reveal">
+        <button class="acc-q">As aulas coletivas estão inclusas? <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="acc-a"><p>Nos planos Premium e Black, todas as aulas coletivas estão incluídas. No Essencial, elas podem ser adicionadas à parte.</p></div>
+      </div>
+      <div class="acc-item reveal">
+        <button class="acc-q">Como funciona o acompanhamento com a equipe? <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="acc-a"><p>No plano Black você tem acompanhamento com personal, plano alimentar com nutricionista e avaliação com fisioterapeuta. Nos demais, esses serviços podem ser contratados avulsos.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="finalcta">
+  <div class="wrap reveal">
+    <span class="eyebrow" style="display:block;margin-bottom:16px">Comece hoje</span>
+    <h2 class="display">Sua melhor Aura <span class="gold-text">te espera.</span></h2>
+    <p>Escolha seu plano e fale com a equipe agora. Condições de inauguração por tempo limitado.</p>
+    <div class="row">
+      <a href="#planos" class="btn btn-gold">Escolher meu plano</a>
+      <a href="#" class="btn btn-ghost wa-generic">Tirar dúvidas no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Aura Gym Piam · Rua Misericórdia 126, Belford Roxo — RJ · <a href="https://instagram.com/auragympiam" target="_blank" rel="noopener">@auragympiam</a>
+  </div>
+</footer>
+
+<a class="wa-float wa-generic" href="#" aria-label="WhatsApp">
+  <svg fill="currentColor" viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.6.2-.2.3-.7.8-.8 1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5s-.6-1.5-.9-2c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 5 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.9-1.3A10 10 0 1 0 12 2z"/></svg>
+</a>
+
+<script>
+(function(){
+  var WA="5521981081044";
+
+  // plan CTAs -> WhatsApp with plan name
+  document.querySelectorAll('.plan-cta').forEach(function(el){
+    el.addEventListener('click',function(e){
+      e.preventDefault();
+      var plan=el.getAttribute('data-plan'), price=el.getAttribute('data-price');
+      var msg='*Interesse em plano — AURA GYM Piam* ✦\n\nQuero contratar o plano *'+plan+'* ('+price+').\nPode me passar as condições de inauguração?';
+      window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank');
+    });
+  });
+
+  // generic WA
+  document.querySelectorAll('.wa-generic').forEach(function(el){
+    el.addEventListener('click',function(e){
+      e.preventDefault();
+      var msg='Olá! Vim pela página de planos da Aura Gym Piam e quero tirar algumas dúvidas.';
+      window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank');
+    });
+  });
+
+  // header scroll
+  var header=document.getElementById('header');
+  window.addEventListener('scroll',function(){header.classList.toggle('scrolled',window.scrollY>30);});
+
+  // accordion
+  document.querySelectorAll('.acc-q').forEach(function(q){
+    q.addEventListener('click',function(){
+      var item=q.parentElement, a=item.querySelector('.acc-a'), open=item.classList.contains('open');
+      document.querySelectorAll('.acc-item.open').forEach(function(i){i.classList.remove('open');i.querySelector('.acc-a').style.maxHeight=null;});
+      if(!open){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}
+    });
+  });
+
+  // reveal
+  var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+})();
+</script>
+</body>
+</html>
