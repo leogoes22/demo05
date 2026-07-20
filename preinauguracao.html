@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURA GYM Piam — Lista de Espera da Inauguração</title>
+<meta name="description" content="A nova academia premium da Piam está chegando. Entre para a lista de espera e garanta condições exclusivas de pré-inauguração.">
+<meta property="og:title" content="AURA GYM Piam — Inauguração antecipada">
+<meta property="og:description" content="Garanta sua vaga com condições exclusivas de pré-inauguração em Belford Roxo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#060606;--onyx:#0d0d0d;--graphite:#161514;--line:#262320;
+    --gold:#d4af62;--gold-light:#f4e0a6;--gold-deep:#a87f31;
+    --bone:#ece5d6;--ash:#8f897c;--ash-dim:#63605a;
+    --grad-gold:linear-gradient(135deg,#f4e0a6 0%,#d4af62 42%,#a87f31 100%);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--void);color:var(--bone);font-family:'Inter',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--gold);color:#000}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .display{font-family:'Sora',sans-serif;font-weight:800;letter-spacing:-.01em;line-height:1.03}
+  .eyebrow{font-family:'Sora',sans-serif;font-weight:600;font-size:.72rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold)}
+  .gold-text{background:var(--grad-gold);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:'Sora',sans-serif;font-weight:600;font-size:.86rem;letter-spacing:.06em;text-transform:uppercase;padding:16px 30px;border-radius:2px;transition:transform .25s,box-shadow .25s;cursor:pointer;border:none}
+  .btn-gold{background:var(--grad-gold);color:#0a0a0a}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 38px -12px rgba(212,175,98,.6)}
+  .mark{width:36px;height:36px;flex:none}
+  .logo{display:flex;align-items:center;gap:12px}
+  .logo .word{font-family:'Sora',sans-serif;font-weight:700;font-size:1.15rem;letter-spacing:.3em;padding-left:.3em}
+  .logo .word small{display:block;font-size:.5rem;letter-spacing:.6em;color:var(--gold);font-weight:600;margin-top:2px}
+
+  /* top bar */
+  .topbar{position:absolute;top:0;left:0;right:0;z-index:10}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:82px}
+  .topbar .loctag{font-size:.78rem;color:var(--ash);letter-spacing:.04em}
+
+  /* HERO split */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:110px 0 60px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(55% 50% at 78% 35%,rgba(212,175,98,.17),transparent 70%),radial-gradient(45% 40% at 10% 90%,rgba(168,127,49,.10),transparent 70%);pointer-events:none}
+  .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;width:100%}
+  .badge{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:100px;padding:8px 16px 8px 12px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-light);margin-bottom:26px;background:rgba(212,175,98,.05)}
+  .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(212,175,98,.55)}70%{box-shadow:0 0 0 10px rgba(212,175,98,0)}100%{box-shadow:0 0 0 0 rgba(212,175,98,0)}}
+  .hero h1{font-size:clamp(2.5rem,5.6vw,4.3rem);margin-bottom:22px}
+  .hero .lead{font-size:1.1rem;color:var(--ash);max-width:480px;margin-bottom:32px}
+  .trust{display:flex;gap:26px;flex-wrap:wrap;margin-top:36px}
+  .trust .t{display:flex;align-items:center;gap:9px;font-size:.84rem;color:var(--ash)}
+  .trust .t svg{width:17px;height:17px;color:var(--gold);flex:none}
+
+  /* form card */
+  .formcard{border:1px solid var(--line);border-radius:12px;padding:34px;background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);box-shadow:0 30px 80px -40px rgba(0,0,0,.9)}
+  .formcard .cd-head{text-align:center;margin-bottom:26px}
+  .formcard .cd-head .k{font-family:'Sora',sans-serif;font-weight:700;font-size:1.2rem;margin-bottom:16px}
+  .countdown{display:flex;gap:10px;justify-content:center}
+  .cd-box{text-align:center;border:1px solid var(--line);border-radius:5px;padding:12px 12px;min-width:62px;background:rgba(212,175,98,.04)}
+  .cd-box b{font-family:'Sora',sans-serif;font-weight:800;font-size:1.5rem;display:block;line-height:1}
+  .cd-box span{font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ash);margin-top:5px;display:block}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ash);margin-bottom:7px}
+  .field input,.field select{width:100%;background:var(--void);border:1px solid var(--line);border-radius:4px;padding:14px 16px;color:var(--bone);font-family:inherit;font-size:.95rem;transition:border-color .25s}
+  .field input:focus,.field select:focus{outline:none;border-color:var(--gold)}
+  .field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' stroke='%23d4af62' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+  .formcard .btn-gold{width:100%;padding:17px;margin-top:6px}
+  .fine{font-size:.72rem;color:var(--ash-dim);text-align:center;margin-top:14px}
+  .form-success{display:none;text-align:center;padding:24px 8px}
+  .form-success.show{display:block}
+  .form-success .ck{width:54px;height:54px;margin:0 auto 18px;color:var(--gold)}
+  .form-success h3{font-family:'Sora',sans-serif;font-weight:700;font-size:1.3rem;margin-bottom:10px}
+  .form-success p{color:var(--ash);margin-bottom:20px}
+
+  /* benefits strip */
+  .benefits{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--onyx);padding:64px 0}
+  .ben-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .ben{text-align:center;padding:10px}
+  .ben .ic{width:44px;height:44px;color:var(--gold);margin:0 auto 16px}
+  .ben h4{font-family:'Sora',sans-serif;font-weight:700;font-size:.98rem;text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px}
+  .ben p{color:var(--ash);font-size:.86rem}
+
+  /* why band */
+  .why{padding:80px 0}
+  .why .sec-head{text-align:center;max-width:620px;margin:0 auto 44px}
+  .why .sec-head .eyebrow{display:block;margin-bottom:14px}
+  .why .sec-head h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:14px}
+  .why .sec-head p{color:var(--ash)}
+  .pill-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+  .pill{border:1px solid var(--line);border-radius:100px;padding:11px 22px;font-family:'Sora',sans-serif;font-weight:600;font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;color:var(--bone);transition:border-color .3s,color .3s}
+  .pill:hover{border-color:var(--gold);color:var(--gold-light)}
+
+  /* final cta */
+  .finalcta{background:linear-gradient(160deg,#100d07,#060606 70%);border-top:1px solid var(--line);padding:80px 0;text-align:center}
+  .finalcta h2{font-size:clamp(1.9rem,4.4vw,3rem);margin-bottom:18px}
+  .finalcta p{color:var(--ash);max-width:480px;margin:0 auto 30px}
+
+  footer{padding:40px 0;border-top:1px solid var(--line);text-align:center;color:var(--ash-dim);font-size:.82rem}
+  footer a{color:var(--gold-light)}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .ben-grid{grid-template-columns:repeat(2,1fr)}
+    .topbar .loctag{display:none}
+  }
+  @media(max-width:520px){.ben-grid{grid-template-columns:1fr}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a href="#" class="logo">
+      <span class="mark"><svg viewBox="0 0 100 100" fill="none"><path d="M50 14 L82 78 H68 L50 40 L32 78 H18 Z" stroke="#d4af62" stroke-width="4" stroke-linejoin="round"/><path d="M50 38 L66 72 H58 L50 54 L42 72 H34 Z" fill="#d4af62"/></svg></span>
+      <span class="word">AURA<small>GYM · PIAM</small></span>
+    </a>
+    <span class="loctag">Rua Misericórdia 126 · Belford Roxo — RJ</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="badge"><span class="dot"></span>Inauguração antecipada</div>
+      <h1 class="display">A Aura Gym chegou <span class="gold-text">mais perto de você.</span></h1>
+      <p class="lead">A academia premium da Piam está prestes a abrir. Entre para a lista de espera e garanta condições exclusivas antes de todo mundo.</p>
+      <div class="trust">
+        <div class="t"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Estrutura premium</div>
+        <div class="t"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Ambiente climatizado</div>
+        <div class="t"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Aulas para todos os níveis</div>
+      </div>
+    </div>
+
+    <div>
+      <div class="formcard">
+        <form id="leadForm">
+          <div class="cd-head">
+            <div class="k gold-text">Contagem para a inauguração</div>
+            <div class="countdown" id="countdown">
+              <div class="cd-box"><b id="cd-d">00</b><span>Dias</span></div>
+              <div class="cd-box"><b id="cd-h">00</b><span>Horas</span></div>
+              <div class="cd-box"><b id="cd-m">00</b><span>Min</span></div>
+              <div class="cd-box"><b id="cd-s">00</b><span>Seg</span></div>
+            </div>
+          </div>
+          <div class="field">
+            <label for="nome">Nome completo</label>
+            <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+          </div>
+          <div class="field">
+            <label for="telefone">WhatsApp</label>
+            <input type="tel" id="telefone" name="telefone" required placeholder="(21) 90000-0000">
+          </div>
+          <div class="field">
+            <label for="email">E-mail (opcional)</label>
+            <input type="email" id="email" name="email" placeholder="voce@email.com">
+          </div>
+          <div class="field">
+            <label for="objetivo">Seu objetivo</label>
+            <select id="objetivo" name="objetivo">
+              <option value="Ainda decidindo">Ainda decidindo</option>
+              <option value="Emagrecimento">Emagrecimento</option>
+              <option value="Ganho de massa">Ganho de massa</option>
+              <option value="Condicionamento / saúde">Condicionamento / saúde</option>
+              <option value="Aulas coletivas">Aulas coletivas</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-gold">Quero garantir minha vaga</button>
+          <p class="fine">Seus dados vão direto para o nosso WhatsApp. Sem spam.</p>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <div class="ck"><svg fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg></div>
+          <h3>Falta só um passo!</h3>
+          <p>Abrimos o WhatsApp com seus dados preenchidos. Toque em enviar para confirmar sua vaga.</p>
+          <a href="#" class="btn btn-gold" id="reopenWa">Reabrir WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="wrap">
+    <div class="ben-grid">
+      <div class="ben reveal">
+        <div class="ic"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 9v6M6 7v10M18 7v10M21 9v6M6 12h12"/></svg></div>
+        <h4>Aparelhos de ponta</h4><p>Última geração para resultados mais rápidos.</p>
+      </div>
+      <div class="ben reveal">
+        <div class="ic"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2v20M4.2 7l15.6 10M4.2 17l15.6-10M2 12h20"/></svg></div>
+        <h4>Climatizado</h4><p>Conforto térmico em todos os treinos.</p>
+      </div>
+      <div class="ben reveal">
+        <div class="ic"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3.2"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7"/></svg></div>
+        <h4>Acompanhamento</h4><p>Personal, nutri e fisio na sua jornada.</p>
+      </div>
+      <div class="ben reveal">
+        <div class="ic"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M5 16l1.5-5a2 2 0 0 1 1.9-1.4h7.2A2 2 0 0 1 18.5 11L20 16M5 16h14"/><circle cx="8" cy="16.5" r="1.3"/><circle cx="16" cy="16.5" r="1.3"/></svg></div>
+        <h4>Fácil de chegar</h4><p>Estacionamento fácil bem na Piam.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Aulas para todos os níveis</span>
+      <h2 class="display">Muito além da <span class="gold-text">musculação.</span></h2>
+      <p>Do combate à dança, tem treino para todo mundo — e um espaço premium para viver cada um deles.</p>
+    </div>
+    <div class="pill-row reveal">
+      <span class="pill">Kickboxing</span>
+      <span class="pill">Jiu-Jítsu</span>
+      <span class="pill">Funcional</span>
+      <span class="pill">Step</span>
+      <span class="pill">Jump</span>
+      <span class="pill">Zumba</span>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="finalcta">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow" style="display:block;margin-bottom:16px">Vagas limitadas na pré-inauguração</span>
+      <h2 class="display">Sua melhor versão <span class="gold-text">começa agora.</span></h2>
+      <p>Não fique de fora. Garanta seu lugar entre os primeiros a treinar na Aura Gym da Piam.</p>
+      <a href="#" class="btn btn-gold" id="scrollTop">Entrar na lista de espera</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Aura Gym Piam · Rua Misericórdia 126, Belford Roxo — RJ · <a href="https://instagram.com/auragympiam" target="_blank" rel="noopener">@auragympiam</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var WA="5521981081044";
+
+  // reveal
+  var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.14});
+  document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+
+  // countdown
+  var target=new Date('2026-09-01T09:00:00-03:00').getTime();
+  function p(n){return String(n).padStart(2,'0');}
+  function tick(){
+    var diff=Math.max(0,target-Date.now());
+    var set=function(id,v){var e=document.getElementById(id);if(e)e.textContent=p(v);};
+    set('cd-d',Math.floor(diff/86400000));
+    set('cd-h',Math.floor(diff%86400000/3600000));
+    set('cd-m',Math.floor(diff%3600000/60000));
+    set('cd-s',Math.floor(diff%60000/1000));
+  }
+  tick();setInterval(tick,1000);
+
+  // form -> whatsapp
+  var form=document.getElementById('leadForm');
+  var success=document.getElementById('formSuccess');
+  var lastUrl='';
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var nome=form.nome.value.trim(),tel=form.telefone.value.trim(),email=form.email.value.trim(),obj=form.objetivo.value;
+    var msg='*Lista de espera — AURA GYM Piam* ✦\n\n👤 Nome: '+nome+'\n📱 WhatsApp: '+tel+'\n'+(email?'✉️ E-mail: '+email+'\n':'')+'🎯 Objetivo: '+obj+'\n\nQuero garantir minha vaga na pré-inauguração!';
+    lastUrl='https://wa.me/'+WA+'?text='+encodeURIComponent(msg);
+    window.open(lastUrl,'_blank');
+    form.style.display='none';success.classList.add('show');
+  });
+  var reopen=document.getElementById('reopenWa');
+  reopen&&reopen.addEventListener('click',function(e){e.preventDefault();if(lastUrl)window.open(lastUrl,'_blank');});
+
+  document.getElementById('scrollTop').addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});setTimeout(function(){var n=document.getElementById('nome');n&&n.focus();},500);});
+})();
+</script>
+</body>
+</html>
